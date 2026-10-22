@@ -1,0 +1,32 @@
+{
+  "name": "@pipeworx/mcp-it-admin-courts",
+  "version": "0.1.0",
+  "description": "Italian administrative courts MCP -- search and read the published rulings of the Consiglio di Stato and the regional administrative tribunals (TAR): public-procurement awards, planning and permits, public-sector employment, regulatory and licensing disputes.",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "bin": {
+    "mcp-it-admin-courts": "bin/cli.js"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "it-admin-courts"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-it-admin-courts.git"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-3a027fc0dbeee6811ba88512adf46fab166f3ab6f222109055c063aad38655a8",
+    "sourceCommit": "712a5e0171ea24483214329d0cd7efdfd9b80352"
+  }
+}
