@@ -1,0 +1,72 @@
+[
+  {
+    "name": "search_rulings",
+    "description": "Search Italian administrative-court rulings (Consiglio di Stato and the regional TAR tribunals) by words or phrase, optionally narrowed by ruling type and by court seat. Covers public-procurement and contract-award disputes, planning and permits, public-sector employment, licensing and regulatory appeals -- e.g. rulings from the Brescia TAR naming a company or a tender. Returns each ruling's type, seat, section, number, ECLI, case number, a text snippet around the match, and a link to the full text; use get_ruling to read one. Italian search terms work best. Source: Giustizia Amministrativa. Covers administrative justice only -- not civil or criminal courts.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "all_words": {
+          "type": "string",
+          "description": "Words that must ALL appear, e.g. \"appalto Brescia\" or a company name"
+        },
+        "phrase": {
+          "type": "string",
+          "description": "Exact phrase that must appear, e.g. \"informativa antimafia\""
+        },
+        "exclude_words": {
+          "type": "string",
+          "description": "Words that must NOT appear"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "sentenza",
+            "ordinanza",
+            "decreto",
+            "parere"
+          ],
+          "description": "Ruling type (default: all)"
+        },
+        "seat": {
+          "type": "string",
+          "description": "Court seat: \"Consiglio di Stato\", \"C.G.A.R.S\", or a TAR city such as \"Brescia\", \"Milano\", \"Roma\", \"Napoli\" (default: all)"
+        },
+        "limit": {
+          "type": "number",
+          "description": "20, 40 or 60 results (default 20)"
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "get_ruling",
+    "description": "Read the full text of one Italian administrative-court ruling found with search_rulings: pass its `case_key`, `file` and `schema` as returned there. Returns the court, ECLI where present, and the ruling text (truncated at max_chars). Source: Giustizia Amministrativa.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "description": "Court code from search_rulings, e.g. \"tar_rm\" or \"cds\""
+        },
+        "case_key": {
+          "type": "string",
+          "description": "Case number (nrg) from search_rulings, e.g. \"202604234\""
+        },
+        "file": {
+          "type": "string",
+          "description": "File name from search_rulings, e.g. \"202611921_01.html\""
+        },
+        "max_chars": {
+          "type": "number",
+          "description": "Characters of text to return (1000-60000, default 15000)"
+        }
+      },
+      "required": [
+        "schema",
+        "case_key",
+        "file"
+      ]
+    }
+  }
+]
