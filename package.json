@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-it-admin-courts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Italian administrative courts MCP -- search and read the published rulings of the Consiglio di Stato and the regional administrative tribunals (TAR): public-procurement awards, planning and permits, public-sector employment, regulatory and licensing disputes.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "it-admin-courts",
     "gatewaySlug": "it-admin-courts",
-    "sourceHash": "v1-abeac0a89cdb99e5e66aa43727b52abc944fbb19d66bb8f1635702c8f964ee49",
-    "sourceCommit": "4844029e402d6bd2fe735add8abf6d46735f8ed5"
+    "sourceHash": "v1-8a7475b62c9a234fcd9db1b5e65eef6fa4d4ac99819c5668f471c977b1065d1f",
+    "sourceCommit": "0ca9712c0ac03bb0121cc7e81b202d0c45ac02ca"
   }
 }
